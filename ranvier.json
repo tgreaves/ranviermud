@@ -75,7 +75,7 @@
   "minPlayerNameLength": 3,
   "maxCharacters": 3,
   "reportToAdmins": false,
-  "startingRoom": "cave:start",
+  "startingRoom": "cave:1",
   "moveCommand": "move",
   "skillLag": 2000,
   "defaultMaxPlayerInventory": 16,
