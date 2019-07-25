@@ -52,3 +52,6 @@
 [submodule "bundles/websocket-networking"]
 	path = bundles/websocket-networking
 	url = https://github.com/RanvierMUD/websocket-networking
+[submodule "bundles/cave"]
+	path = bundles/cave
+	url = https://github.com/tgreaves/cave.git
