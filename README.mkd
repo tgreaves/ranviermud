@@ -1,40 +1,62 @@
-<p align="center"><img class="readme-logo" src="https://raw.githubusercontent.com/RanvierMUD/docs/master/resources/logo.png"></p>
+# Cave
 
-# ranvier
+## What is Cave?
 
-## Node.js-based MUD engine
+Cave is a port of the [BBC Micro](https://en.wikipedia.org/wiki/BBC_Micro) [MUD](https://en.wikipedia.org/wiki/MUD) 'CAVE', which was released back in 1985 by XOB Software.  Other things that happened in 1985: The UK got its first cellular phone network, DNS was launched and Richard Stallman published the GNU Manifesto.
 
-Ranvier is a [MUD](https://en.wikipedia.org/wiki/MUD) game engine whose goal is to be a simple but powerful way to build whatever MUD you want with special care given to extensibility. The core code strives to be completely unopinionated toward any specific style of game while using the bundle system to build the game you want without having to dig through the engine's code.
+Cave ran on an [Econet network][https://en.wikipedia.org/wiki/Econet].  Interestingly, it didn't use a traditional client / server model.  The 'security' of Econet meant that each station in the game would just send data straight into the memory of other computers in the game, where it could be actioned on.
 
-## Special Features
+For the original source code, and some notes, please refer to: https://github.com/tgreaves/cave-bbc-econet
 
-* Robust bundle system: Nearly every aspect of the game can be modified without changing the core and allows for easy
-  packaging and sharing of commands/areas/items/npcs/channels/behaviors
-* Unopinionated network layer: easily swap out telnet for any network layer you like. No need to gut the whole codebase
-  just to support a different transport type, just drop in a file.
-* Customizable data layer: You are not tied to saving in any particular database or file storage sytem
-* Optional coordinate based room system allowing for the flexibilty of a standard MUD world with the easy mappability of
-  a strict 3D world.
-* Scripting for all entities in the game for any event along with behaviors to create shared, composable scripts
-* Skill system with passive/active skills
-* Effects e.g., buffs/debuffs
-* Quest system allowing for starting/progress/completion from any event in the game
-* Communication channels with custom audiences
+## What can I do in Cave?
 
-## Documentation
+The game is very simplistic compared to more modern MUDs.
 
-Ranvier prides itself on having thorough documentation which is available on our website: [ranviermud.com](https://ranviermud.com)
+You can:
 
-## Slack
+* Wander around.
+* Attack things! (HIT, STAB, BURN etc -- although you need to find weapons for some of these!)
+* Turn the lights on and off (If you find the light switch)
+* POISON other players  (and get cured if you find the MEDICINE)
+* Open and close the portcullis with the rope
+* Earn points by slaying CCMS (Cave Controlled Monsters) or other players.
+* SUMMON other players and CCMs, and TELEPORT to them.  Note the chance of success varies depending on your power.
+* FORCE other players to do your will!
 
-We have a Slack channel you can use to ask questions, suggest features, or just keep up to date with the project: [https://ranviermud.slack.com](https://ranviermud.slack.com)
+Note that the combat system is very simplistic.  Fastest player wins!!  This is faithful to the original, although the original had inherent lag due to the speed of the computers and network.
 
-[Get an invite](https://join.slack.com/t/ranviermud/shared_invite/enQtMzczMDU3MDkxODc5LWVjZmUwNjBmNGFjYjZjOTM2OTcyMDMzZTJjZmNlOWZjNWJmNjVmMTg4ODFmOWQ3Yjg2Y2U5OTIyYTgyZTE2ZTA)
+You 'level up' at scores of 150 (Warrior), 500 (Master Caver) and 1000 (Wizard).  Wizard is pretty much the 'super user' level.
 
-## Requirements
+## How has this been built?
 
-* [Node.js](https://nodejs.org) >= v10.12.0
+This game has been built on top of the [Ranvier](https://ranviermud.com) engine.  It has been implemented a standalone bundle which this repository pulls in as required.  
 
-## Demo
+The bundle source code is here: https://github.com/tgreaves/cave
 
-Point your favorite client or telnet to `ranviermud.com` port 4000. This demo server is wiped and updated from the `master` branch every hour.
+## Can I see this running anywhere?
+
+Yes!  Telnet to cave.extricate.org on port 4000 and go from there.
+
+## How do I run it myself?
+
+Simplest way:
+
+* Have Node v10+ and `npm` installed on your system.
+* Check-out this repository
+* `git submodule init`
+* `git submodule update`
+* `npm ci`
+* `cd bundles/telnet-networking`
+* `npm install`
+* `cd ../bundles/cave`
+* `npm install`
+* `cd ..`
+* `./ranvier`*
+
+To have the game persist, install `forever`, and then you can use:
+
+* `forever start ./ranvier`
+
+Once you have created a character (which will appear in your 'data' folder), you can edit it to increase your score to Wizard levels as you see fit :)
+
+There is a prototype Dockerfile as well if you want to spin this up using Docker.
