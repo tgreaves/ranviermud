@@ -4,7 +4,7 @@
 
 Cave is a port of the [BBC Micro](https://en.wikipedia.org/wiki/BBC_Micro) [MUD](https://en.wikipedia.org/wiki/MUD) 'CAVE', which was released back in 1985 by XOB Software.  Other things that happened in 1985: The UK got its first cellular phone network, DNS was launched and Richard Stallman published the GNU Manifesto.
 
-Cave ran on an [Econet network][https://en.wikipedia.org/wiki/Econet].  Interestingly, it didn't use a traditional client / server model.  The 'security' of Econet meant that each station in the game would just send data straight into the memory of other computers in the game, where it could be actioned on.
+Cave ran on an [Econet network](https://en.wikipedia.org/wiki/Econet).  Interestingly, it didn't use a traditional client / server model.  The 'security' of Econet meant that each station in the game would just send data straight into the memory of other computers in the game, where it could be actioned on.
 
 For the original source code, and some notes, please refer to: https://github.com/tgreaves/cave-bbc-econet
 
@@ -39,19 +39,15 @@ Yes!  Telnet to cave.extricate.org on port 4000 and go from there.
 
 ## How do I run it myself?
 
-Simplest way:
+PRE-REQUISITE: Have Node v10+ and `npm` installed on your system.
 
-* Have Node v10+ and `npm` installed on your system.
-* Check-out this repository
-* `git submodule init`
-* `git submodule update`
-* `npm ci`
-* `cd bundles/telnet-networking`
-* `npm install`
-* `cd ../bundles/cave`
-* `npm install`
-* `cd ..`
-* `./ranvier`*
+```
+git clone --recursive https://github.com/tgreaves/ranviermud-cave.git
+cd ranviermud-cave
+npm ci
+git submodule foreach npm install
+./ranvier
+```
 
 To have the game persist, install `forever`, and then you can use:
 
