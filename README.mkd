@@ -41,10 +41,23 @@ Yes!  Telnet to cave.extricate.org on port 4000 and go from there.
 
 PRE-REQUISITE: Have Node v10+ and `npm` installed on your system.
 
+Firstly, you need the latest 'core' for Ranvier which fixes some broadcasting bugs.
+(This step won't be required when these fixes hit the mainstream).
+
+```
+git clone https://github.com/RanvierMUD/core.git
+cd core
+sudo npm link
+cd ..
+```
+
+Then, you can proceed with the installation of Cave:
+
 ```
 git clone --recursive https://github.com/tgreaves/ranviermud-cave.git
 cd ranviermud-cave
 npm ci
+npm link ranvier
 git submodule foreach npm install
 ./ranvier
 ```
