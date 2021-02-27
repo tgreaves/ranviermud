@@ -62,9 +62,15 @@ git submodule foreach npm install
 ./ranvier
 ```
 
-To have the game persist, install `forever`, and then you can use:
+To have the game persist, install `forever`:
 
-* `forever start ./ranvier`
+```
+sudo npm install forever -g
+```
+
+Then:
+
+* `forever start -o log/ranvier.log ./ranvier`
 
 Once you have created a character (which will appear in your 'data' folder), you can edit it to increase your score to Wizard levels as you see fit :)
 
