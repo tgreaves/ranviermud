@@ -1,0 +1,17 @@
+version: "3"
+services:
+  ranviermud-cave:
+    image: ranviermud-cave:latest
+    container_name: ranviermud-cave
+    restart: always
+    ports:
+      - 4000:4000
+    networks:
+      - mud_network
+    volumes:
+      - "cave-data:/usr/src/cave/data"
+networks:
+    mud_network:
+volumes:
+  cave-data:
+    external: true
