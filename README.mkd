@@ -74,4 +74,14 @@ Then:
 
 Once you have created a character (which will appear in your 'data' folder), you can edit it to increase your score to Wizard levels as you see fit :)
 
-There is a prototype Dockerfile as well if you want to spin this up using Docker.
+## Docker
+
+```
+git clone --recursive https://github.com/tgreaves/ranviermud-cave.git
+cd ranviermud-cave
+docker build . -t ranviermud-cave:latest
+docker volume create --name=cave-data
+docker-compose -d up
+```
+
+The `cave-data` volume will persist and contains acccount and player data.

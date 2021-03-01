@@ -16,4 +16,4 @@ WORKDIR /usr/src/cave
 COPY . /usr/src/cave
 EXPOSE 4000
 
-CMD [ "./ranvier" ]
+CMD exec node ranvier >> log/ranvier.log
