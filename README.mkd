@@ -81,7 +81,7 @@ git clone --recursive https://github.com/tgreaves/ranviermud-cave.git
 cd ranviermud-cave
 docker build . -t ranviermud-cave:latest
 docker volume create --name=cave-data
-docker-compose -d up
+docker-compose up -d
 ```
 
 The `cave-data` volume will persist and contains acccount and player data.
